@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <span>tên dăng nhập</span>
+    <input type="text">
+    <button>ấn vào</button>
+
+
+    <script src="./js/user.js"></script>
+    <script>
+
+        let inputE = document.querySelector("input")
+        let buttonE = document.querySelector("button")
+        let currentUserx
+        buttonE.onclick = function () {
+         
+            for (let index = 0; index < userBase.length; index++) {
+                if (userBase[index].id == inputE.value) {
+                    userIndex =index
+                }  
+            }     
+            currentUserx = userBase[userIndex]
+            localStorage.setItem("currentUser",JSON.stringify(currentUserx))
+            window.location.assign("./index.html")
+        }
+        
+
+
+    </script>
+</body>
+</html>
