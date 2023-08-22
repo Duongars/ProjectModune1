@@ -159,7 +159,7 @@
             let check = true
             
             inputElements.forEach(function (item) {
-                // debugger
+                debugger
                 switch (item.type) {
                     case "file":
                         if (item.files[0] == "") {
@@ -167,7 +167,7 @@
                             break;
                         } 
                     default:
-                        if (item == "") {
+                        if (item.value == "") {
                             check = false;
                         }
                       
@@ -186,6 +186,7 @@
         let inputResult = []
     
          let check = validate();
+
          if(check){
             inputElements.forEach(function (item) {
                 switch (item.type) {
@@ -255,8 +256,14 @@
             alert("vui lòng nhập đầy đủ dữ liệu")
         }
 
+    }
 
 
+    function deleteData(index) {
+        let productData = JSON.parse(localStorage.getItem("dataBase"))
+        productData.splice(index,1)
+        localStorage.setItem("dataBase", JSON.stringify(productData));
+        renderProductList();
     }
 
 
